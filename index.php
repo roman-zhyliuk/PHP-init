@@ -48,9 +48,53 @@ function findMax($arr) {
     return $max;
 }
 
+function Fibonacci($n) {
+    $arr = [0, 1];
+    if($n <= 1) {
+        return [0];
+    } else {
+        while(sizeof($arr) != $n) {
+            array_push($arr, (end($arr) + prev($arr)));
+
+        }
+        return $arr;
+    }
+}
+
+function isPrime($num)
+{
+    if($num > 1 && is_integer($num)) {
+        for($i = 2; $i<$num; $i++) {
+            if($num % $i == 0) {
+                return "false";
+            } else {
+                continue;
+            }
+        }
+        return "true";
+    } else {
+        return "false";
+    }
+}
+
+function reverseString($str)
+{
+
+}
+
 echo findMax([3, 5, 1, 0, 4, 3, 5, 6, 1])."<br>";
 echo findMax([0, 0, 0, 0, 0, 0, 0, 0])."<br>";
 echo findMax([1, 1, 1, 1, 1, 1, 0])."<br>";
 echo findMax([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])."<br>";
 echo findMax([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])."<br>";
+print_r(array_values(Fibonacci(8)));
+echo "</br>";
+print_r(array_values(Fibonacci(15)));
+echo "</br>";
+print_r(array_values(Fibonacci(0)));
+echo "</br>";
+echo isPrime(5)."<br>";
+echo isPrime(6)."<br>";
+echo isPrime(-10)."<br>";
+
 ?>
