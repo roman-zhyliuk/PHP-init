@@ -79,7 +79,21 @@ function isPrime($num)
 
 function reverseString($str)
 {
+    $new_str = "";
+    $str = str_split($str);
+    for($i = sizeof($str)-1; $i >= 0; $i--) {
+        $new_str = $new_str .= strval($str[$i]);
+    }
+    return $new_str;
+}
 
+function factorial($n)
+{
+    $fct = 1;
+    for($i = 1; $i <= $n; $i++) {
+        $fct *= $i;
+    }
+    return $fct;
 }
 
 echo findMax([3, 5, 1, 0, 4, 3, 5, 6, 1])."<br>";
@@ -87,14 +101,25 @@ echo findMax([0, 0, 0, 0, 0, 0, 0, 0])."<br>";
 echo findMax([1, 1, 1, 1, 1, 1, 0])."<br>";
 echo findMax([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])."<br>";
 echo findMax([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])."<br>";
+
 print_r(array_values(Fibonacci(8)));
 echo "</br>";
 print_r(array_values(Fibonacci(15)));
 echo "</br>";
 print_r(array_values(Fibonacci(0)));
 echo "</br>";
+
 echo isPrime(5)."<br>";
 echo isPrime(6)."<br>";
 echo isPrime(-10)."<br>";
+
+echo reverseString('hello')."<br>";
+echo reverseString('g')."<br>";
+echo reverseString('Hello WorLd')."<br>";
+echo reverseString(3434)."<br>";
+
+echo factorial(5)."<br>";
+echo factorial(1)."<br>";
+echo factorial(10)."<br>";
 
 ?>
