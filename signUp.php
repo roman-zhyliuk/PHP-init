@@ -23,8 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = "SELECT username FROM users WHERE username = ?";
             $result = $mysqli->execute_query($stmt, [$username]);
             foreach ($result as $res) {
-                if ($username == implode('', $res));
+                if ($username == implode('', $res)) {
                     $errors['username'] = 'User with this username has been already registered, create other username';
+                }
             }
         }
     } else {
